@@ -107,10 +107,10 @@
 </div>
 
  <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#caption"> 
-    Add a photo
-  </button>
-</div>
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#caption"> 
+  Add a photo
+</button>
+
 <!-- Modal -->
 <div class="modal fade" id="caption" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -121,7 +121,7 @@
         </button>
         <h4 class="modal-title" id="myModalLabel">Add a photo</h4>
       </div>
-      <%= simple_form_for @photo, url: place_photo_index_path(@place) do |f| %>
+      <%= simple_form_for @photo, url: place_photos_path(@place) do |f| %>
         <div class="modal-body">
           <%= f.input :caption %>
           <%= f.input :picture %>
@@ -134,7 +134,17 @@
     </div>
   </div>
 </div>
-
+<div class="row">
+  <% @place.photos.each do |photo| %>
+    <div class="col-12 col-sm-6">
+      <blockquote>
+        <%= image_tag photo.picture.url %>
+        <%= photo.caption %>
+        <small><%= photo.user.email %></small>
+      </blockquote>
+    </div>
+  <% end %>
+</div>
 
 
 
