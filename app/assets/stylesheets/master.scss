@@ -72,6 +72,10 @@ blockquote p {
   display: inline;
 }
 
+blockquote img {
+  width: 100%;
+}
+
 .carousel-inner > .carousel-item > img, .carousel-inner > .carousel-item > a > img {
   max-height: 550px;
   width: 100%;
